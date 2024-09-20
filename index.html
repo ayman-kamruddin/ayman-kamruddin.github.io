@@ -1,15 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Ayman bin Kamruddin</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="HTML5 website template">
-  <meta name="keywords" content="global, template, html, sass, jquery">
-  <meta name="author" content="Bucky Maler">
-  <link rel="stylesheet" href="assets/css/main.css">
-</head>
+  <head>
+    <title>Ayman bin Kamruddin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="HTML5 website template">
+    <meta name="keywords" content="global, template, html, sass, jquery">
+    <meta name="author" content="Ayman bin Kamruddin">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+      /* Center form fields */
+      .work-request--information {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .work-request--information div {
+        width: 100%;
+        max-width: 400px;
+        margin: 10px 0;
+      }
+      
+      .work-request--information label {
+        display: block;
+        text-align: left;
+        margin-bottom: 5px;
+      }
+      
+      .work-request--information input,
+      .work-request--information textarea {
+        width: 100%;
+        padding: 8px;
+        font-size: 1em;
+      }
+      
+      /* Message box styles */
+      .work-request--information textarea {
+        background-color: #000; /* Set background color to black */
+        color: #fff; /* Set text color to white */
+        border: 1px solid #ccc;
+      }
+  
+      /* Placeholder text style for textarea */
+      .work-request--information textarea::placeholder {
+        color: #888; /* Light gray color for placeholder */
+      }
+      
+      /* Center the submit button */
+      .work-request--information input[type="submit"] {
+        width: auto;
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: #333;
+        color: #fff;
+        cursor: pointer;
+      }
+      
+      .work-request--information input[type="submit"]:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
 <body>
 
 <!-- notification for small viewports and landscape oriented smartphones -->
@@ -175,7 +228,7 @@
           </li>
           <li class="l-section section">
             <div class="hire">
-              <h2>Specialities</h2>
+              <h2>Please make a selection</h2>
               <!-- checkout formspree.io for easy form setup -->
               <form class="work-request" action="https://formspree.io/f/mdknrenw" method="POST">
                 <div class="work-request--options">
@@ -252,6 +305,10 @@
                   <div class="information-email">
                     <input id="email" type="email" name="email" spellcheck="false" required>
                     <label for="email">Email</label>
+                  </div>
+                  <div class="information-message">
+                    <textarea id="message" name="message" rows="4" spellcheck="false" placeholder="Your message" required></textarea>
+                    
                   </div>
                 </div>
                 <input type="submit" value="Send Request">
