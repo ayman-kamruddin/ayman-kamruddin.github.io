@@ -177,7 +177,7 @@
             <div class="hire">
               <h2>Specialities</h2>
               <!-- checkout formspree.io for easy form setup -->
-              <form class="work-request">
+              <form class="work-request" action="https://formspree.io/f/mdknrenw" method="POST">
                 <div class="work-request--options">
                   <span class="options-a">
                     <input id="opt-1" type="checkbox" value="AI/ML">
@@ -246,11 +246,11 @@
                 </div>
                 <div class="work-request--information">
                   <div class="information-name">
-                    <input id="name" type="text" spellcheck="false">
+                    <input id="name" type="text" name="name" spellcheck="false" required>
                     <label for="name">Name</label>
                   </div>
                   <div class="information-email">
-                    <input id="email" type="email" spellcheck="false">
+                    <input id="email" type="email" name="email" spellcheck="false" required>
                     <label for="email">Email</label>
                   </div>
                 </div>
