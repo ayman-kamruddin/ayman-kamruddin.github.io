@@ -68,7 +68,7 @@
 
 <!-- notification for small viewports and landscape oriented smartphones -->
 <div class="device-notification">
-  <a class="device-notification--logo" href="#home">
+  <a class="device-notification--logo" href="#0">
     <img src="assets/img/logo.png" alt="Ayman bin Kamruddin">
     <p>Ayman bin Kamruddin</p>
   </a>
@@ -80,7 +80,7 @@
     <div id="viewport" class="l-viewport">
       <div class="l-wrapper">
         <header class="header">
-          <a class="header--logo" href="#home">
+          <a class="header--logo" href="#0">
             <img src="assets/img/logo.png" alt="ayman-kamruddin">
             <p>Ayman bin Kamruddin</p>
           </a>
@@ -91,15 +91,15 @@
         </header>
         <nav class="l-side-nav">
           <ul class="side-nav">
-            <li class="is-active"><a href="#home"></a></li>
-            <li><a href="#work"></a></li>
-            <li><a href="#about"></a></li>
-            <li><a href="#coordinates"></a></li>
-            <li><a href="#contact"></a></li>
+            <li class="is-active"><span>Home</span></li>
+            <li><span>Work</span></li>
+            <li><span>About</span></li>
+            <li><span>Coordinates</span></li>
+            <li><span>Contact me</span></li>
           </ul>
         </nav>
         <ul class="l-main-content main-content">
-          <li id="home" class="l-section section section--is-active">
+          <li class="l-section section section--is-active">
             <div class="intro">
               <div class="intro--banner">
                 <h1>AI/ML<br>Engineer<br>and Physicist</h1>
@@ -129,7 +129,7 @@
               </div>
             </div>
           </li>
-          <li id="work" class="l-section section">
+          <li class="l-section section">
             <div class="work">
               <h2>Selected work</h2>
               <div class="work--lockup">
@@ -140,7 +140,7 @@
                         <img src="assets/img/black_hole.jpg" alt="Black Hole">
                       </div>
                       <p class="slider--item-title">Astrophysics</p>
-                      <p class="slider--item-description">Publication (2013) in Monthly Notices of the Royal Astronomical Society</p>
+                      <p class="slider--item-description">Publication (2013) in Monthly Notices of the Royal Astronomical Soceity</p>
                     </a>
                   </li>
                   <li class="slider--item slider--item-center">
@@ -182,7 +182,7 @@
               </div>
             </div>
           </li>
-          <li id="about" class="l-section section">
+          <li class="l-section section">
             <div class="about">
               <div class="about--banner">
                 <h2>I<br>believe in<br>passionate<br>people</h2>
@@ -208,7 +208,7 @@
               </div>
             </div>
           </li>
-          <li id="coordinates" class="l-section section">
+          <li class="l-section section">
             <div class="contact">
               <div class="contact--lockup">
                 <div class="modal">
@@ -223,7 +223,7 @@
               </div>
             </div>
           </li>
-          <li id="contact" class="l-section section" style="height: auto; min-height: 100vh; overflow-y: auto; position: relative; display: flex; justify-content: center; align-items: center;">
+          <li class="l-section section" style="height: auto; min-height: 100vh; overflow-y: auto; position: relative; display: flex; justify-content: center; align-items: center;">
             <div class="hire">
               <h2>Send me a message</h2>
               <form class="work-request" action="https://formspree.io/f/mdknrenw" method="POST">                
@@ -250,28 +250,17 @@
     </div>
   </div>
   <ul class="outer-nav">
-    <li class="is-active"><a href="#home">Home</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#coordinates">Coordinates</a></li>
-    <li><a href="#contact">Contact me</a></li>
+    <li class="is-active">Home</li>
+    <li>Work</li>
+    <li>About</li>
+    <li>Coordinates</li>
+    <li>Contact me</li>
   </ul>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
 <script src="assets/js/functions-min.js"></script>
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
-</script>
 
 </body>
 </html>
