@@ -24,6 +24,60 @@
       line-height: 1.6;
       font-size: 1.2em;
     }
+    .card-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 250px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-body {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .card-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card-description {
+      font-size: 1em;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .card-link {
+      display: inline-block;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 0.9em;
+      transition: background-color 0.3s;
+      margin-bottom: 15px;
+    }
+
+    .card-link:hover {
+      background-color: #555;
+    }
 
     .back-button {
       display: inline-block;
@@ -95,7 +149,23 @@
     <h1>Research</h1>
     <p>
       My research pathway has included modelling astrophysical black holes, predicting genomic annotations using deep learning, and using advanced AI tools (such as Deep Reinforcement Learning) to model and generate human-like behaviour in artificial agents. I have also worked on projects involving computer vision for Virtual Reality (VR) applications.
+      Here is a small snippet of some of my work in computer vision. Have a look:
     </p>
+
+    <!-- Cards Section -->
+    <div class="card-container">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="assets/img/fusion.jpg" alt="fusion">
+        <div class="card-body">
+          <p class="card-title">LiDAR-Camera fusion</p>
+          <p class="card-description">Computer Vision applications</p>
+          <!-- Link to learn more, opens in new tab -->
+          <a href="https://medium.com/@aymanbinkamruddin/lidar-camera-calibration-in-c-01046be829db" class="card-link" target="_blank">Learn More</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Back to Home Page Button -->
     <a href="index.html" class="back-button">Back to Home Page</a>
   </div>
