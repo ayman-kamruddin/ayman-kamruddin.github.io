@@ -61,6 +61,57 @@
       .work-request--information input[type="submit"]:hover {
         background-color: #555;
       }
+
+      /* Responsive adjustments */
+      @media (max-width: 767px) {
+        .intro--banner h1 {
+          font-size: 2em;
+        }
+
+        .intro--banner p {
+          font-size: 1em;
+        }
+
+        .intro--banner img {
+          width: 100%;
+          height: auto;
+        }
+
+        .work-request--information input,
+        .work-request--information textarea {
+          font-size: 0.9em;
+        }
+
+        .work-request--information input[type="submit"] {
+          padding: 8px 16px;
+          font-size: 0.9em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .intro--banner h1 {
+          font-size: 1.5em;
+        }
+
+        .intro--banner p {
+          font-size: 0.9em;
+        }
+
+        .intro--banner img {
+          width: 100%;
+          height: auto;
+        }
+
+        .work-request--information input,
+        .work-request--information textarea {
+          font-size: 0.8em;
+        }
+
+        .work-request--information input[type="submit"] {
+          padding: 6px 12px;
+          font-size: 0.8em;
+        }
+      }
       
     </style>
   </head>
