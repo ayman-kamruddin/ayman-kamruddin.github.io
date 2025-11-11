@@ -150,7 +150,7 @@
           </ul>
         </nav>
         <ul class="l-main-content main-content">
-          <li class="l-section section section--is-active">
+          <li id="home" class="l-section section section--is-active" data-section="home">
             <div class="intro">
               <div class="intro--banner">
                 <h1>AI/ML<br>Engineer<br>and Physicist</h1>
@@ -180,7 +180,7 @@
               </div>
             </div>
           </li>
-          <li class="l-section section">
+          <li id="work" class="l-section section" data-section="work">
             <div class="work">
               <h2>Selected work</h2>
               <div class="work--lockup">
@@ -233,7 +233,7 @@
               </div>
             </div>
           </li>
-          <li class="l-section section">
+          <li id="about" class="l-section section" data-section="about">
             <div class="about">
               <div class="about--banner">
                 <h2>More<br>about<br>me</h2>
@@ -260,7 +260,7 @@
               </div>
             </div>
           </li>
-          <li class="l-section section">
+          <li id="coordinates" class="l-section section" data-section="coordinates">
             <div class="contact">
               <div class="contact--lockup">
                 <div class="modal">
@@ -275,7 +275,7 @@
               </div>
             </div>
           </li>
-          <li class="l-section section" style="height: auto; min-height: 100vh; overflow-y: auto; position: relative; display: flex; justify-content: center; align-items: center;">
+          <li id="contact" class="l-section section" data-section="contact" style="height: auto; min-height: 100vh; overflow-y: auto; position: relative; display: flex; justify-content: center; align-items: center;">
             <div class="hire">
               <h2>Send me a message</h2>
                 <form class="work-request" action="https://formspree.io/f/mdknrenw" method="POST">                
@@ -327,6 +327,74 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
 <script src="assets/js/functions-min.js"></script>
+<script>
+  (function($) {
+    $(function() {
+      var $sections = $('.l-main-content').children('.l-section');
+      var sectionAnchors = $sections.map(function() {
+        var sectionName = $(this).data('section');
+        return sectionName ? sectionName.toString().toLowerCase() : null;
+      }).get();
+
+      function switchToSection(targetIndex) {
+        if (targetIndex < 0 || targetIndex >= sectionAnchors.length) {
+          return;
+        }
+
+        var $sideNavItems = $('.side-nav').children();
+        var $outerNavItems = $('.outer-nav').children();
+        var $mainContent = $('.main-content');
+        var currentIndex = $sideNavItems.index($sideNavItems.filter('.is-active'));
+
+        if (currentIndex === targetIndex) {
+          return;
+        }
+
+        if (currentIndex < 0) {
+          currentIndex = 0;
+        }
+
+        var lastIndex = $sideNavItems.length - 1;
+
+        $sideNavItems.removeClass('is-active').eq(targetIndex).addClass('is-active');
+        $outerNavItems.removeClass('is-active').eq(targetIndex).addClass('is-active');
+
+        $mainContent.children().removeClass('section--is-active')
+          .eq(targetIndex).addClass('section--is-active');
+
+        $('.main-content .section').children().removeClass('section--next section--prev');
+
+        var wrapsAround = (currentIndex === lastIndex && targetIndex === 0) ||
+                          (currentIndex === 0 && targetIndex === lastIndex);
+
+        if (!wrapsAround && currentIndex !== targetIndex) {
+          var directionClass = currentIndex < targetIndex ? 'section--next' : 'section--prev';
+          $mainContent.children().eq(currentIndex).children().addClass(directionClass);
+        }
+
+        if (targetIndex !== 0 && targetIndex !== lastIndex) {
+          $('.header--cta').addClass('is-active');
+        } else {
+          $('.header--cta').removeClass('is-active');
+        }
+      }
+
+      function handleHashNavigation() {
+        var hash = window.location.hash ? window.location.hash.substring(1).toLowerCase() : '';
+        if (!hash) {
+          return;
+        }
+        var targetIndex = sectionAnchors.indexOf(hash);
+        if (targetIndex !== -1) {
+          switchToSection(targetIndex);
+        }
+      }
+
+      handleHashNavigation();
+      $(window).on('hashchange', handleHashNavigation);
+    });
+  })(jQuery);
+</script>
 
 </body>
 </html>
