@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Google Scholar Logo</title>
+  <desc id="desc">Mortarboard icon in blue for Google Scholar profile link.</desc>
+  <path fill="#4285f4" d="M32 8 4 22l28 14 23-11.5V44h5V22z"/>
+  <path fill="#1a73e8" d="M15 30v10c0 6.5 7.6 11 17 11s17-4.5 17-11V30L32 38z"/>
+</svg>
