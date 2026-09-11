@@ -256,7 +256,7 @@ button:focus-visible {
   .mobile-home-options {
     position: fixed;
     right: 0;
-    bottom: calc(var(--mobile-nav-bottom) + 70px);
+    bottom: calc(var(--mobile-nav-bottom) + 46px);
     left: 0;
     display: flex;
     gap: 8px;
