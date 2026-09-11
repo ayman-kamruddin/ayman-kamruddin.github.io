@@ -154,6 +154,7 @@ button:focus-visible {
   }
 
   .intro--banner img {
+    bottom: 54px;
     display: block;
     width: min(74vw, 320px) !important;
     max-width: 320px !important;
@@ -256,7 +257,7 @@ button:focus-visible {
   .mobile-home-options {
     position: fixed;
     right: 0;
-    bottom: calc(var(--mobile-nav-bottom) + 46px);
+    bottom: calc(var(--mobile-nav-bottom) + 70px);
     left: 0;
     display: flex;
     gap: 8px;
