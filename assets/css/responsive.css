@@ -154,7 +154,7 @@ button:focus-visible {
   .intro--options {
     position: fixed;
     right: 0;
-    bottom: 58px;
+    bottom: clamp(104px, 16svh, 148px);
     left: 0;
     display: flex !important;
     gap: 8px;
@@ -234,7 +234,7 @@ button:focus-visible {
   .l-side-nav {
     position: fixed;
     right: 0;
-    bottom: 0;
+    bottom: max(8px, env(safe-area-inset-bottom));
     left: 0;
     display: block !important;
     width: 100%;
