@@ -331,6 +331,13 @@
   </ul>
 </div>
 
+<nav class="mobile-section-nav" aria-label="Site sections">
+  <button type="button" class="is-active" data-section-index="0">Home</button>
+  <button type="button" data-section-index="1">Work</button>
+  <button type="button" data-section-index="2">About</button>
+  <button type="button" data-section-index="3">Contact me</button>
+</nav>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
 <script src="assets/js/functions-min.js"></script>
@@ -401,6 +408,26 @@
       $(window).on('hashchange', handleHashNavigation);
     });
   })(jQuery);
+</script>
+<script>
+  (function() {
+    var mobileNav = document.querySelector('.mobile-section-nav');
+    if (!mobileNav) return;
+
+    mobileNav.addEventListener('click', function(event) {
+      var button = event.target.closest('button[data-section-index]');
+      if (!button) return;
+
+      var index = Number(button.dataset.sectionIndex);
+      var sideNavItem = document.querySelectorAll('.l-side-nav .side-nav > li')[index];
+      if (!sideNavItem) return;
+
+      sideNavItem.click();
+      mobileNav.querySelectorAll('button').forEach(function(item) {
+        item.classList.toggle('is-active', item === button);
+      });
+    });
+  })();
 </script>
 
 </body>
