@@ -133,151 +133,125 @@ button:focus-visible {
     font-size: 1rem !important;
   }
 
-  /* The original home page is a fixed-height desktop presentation. Make it
-     a readable, scrollable sequence on phones instead. */
-  .l-viewport {
-    height: auto;
-    min-height: 100svh;
-    overflow: visible;
-  }
-
-  .l-wrapper {
-    width: 100%;
-    max-width: none;
-    height: auto;
-    padding-inline: 16px;
-  }
-
-  .l-main-content {
-    height: auto;
-  }
-
-  .l-section {
-    position: relative;
-    min-height: auto;
-    height: auto;
-    padding-block: 32px;
-    opacity: 1;
-    visibility: visible;
-    transform: none !important;
-  }
-
-  .intro,
-  .work,
-  .about,
-  .contact--lockup,
-  .hire {
-    width: 100%;
-    max-width: none;
-    height: auto;
-    min-height: 0;
-  }
-
-  .intro--banner,
-  .about--banner {
-    height: auto;
-    min-height: 0;
-  }
-
-  .intro--banner h1,
-  .about--banner h2 {
-    margin-top: 0;
-    font-size: clamp(2.5rem, 13vw, 4rem);
+  /* Keep the homepage's existing full-page navigation on phones. Its script
+     controls the active slide, so only remove the desktop-only warning. */
+  .l-wrapper > .header {
+    position: absolute;
+    min-height: 70px;
+    padding: 0 !important;
   }
 
   .intro--banner img {
-    position: relative;
-    right: auto;
-    bottom: auto;
     display: block;
-    width: min(100%, 320px) !important;
+    width: min(74vw, 320px) !important;
     max-width: 320px !important;
-    margin: 24px auto 0;
   }
 
-  .intro--options,
+  .outer-nav {
+    left: 50%;
+    width: calc(100% - 32px);
+  }
+
+  .outer-nav > li {
+    font-size: clamp(2rem, 9vw, 2.75rem);
+    white-space: nowrap;
+  }
+
+  .about--banner {
+    height: 410px;
+  }
+
+  .about--banner h2 {
+    margin-top: 0;
+    font-size: 48px;
+  }
+
+  .about--banner > span {
+    display: none;
+  }
+
   .about--options {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .intro--options > a,
-  .about--options > a {
+    display: flex;
     width: 100%;
     max-width: none;
-    margin: 0;
+    gap: 8px;
   }
 
   .about--options > a {
-    height: 96px;
+    width: calc((100% - 16px) / 3);
+    height: 64px;
+    border-width: 4px;
   }
 
   .about--options h3 {
-    bottom: -34px;
+    bottom: 3px;
+    left: 4px;
+    margin: 0;
+    font-size: 10px;
+    line-height: 1;
+    text-shadow: 0 1px 2px #000;
   }
 
-  .work--lockup .slider {
+  .header--nav-toggle {
+    display: none;
+  }
+
+  .l-side-nav {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
     width: 100%;
+    height: 58px;
+    background-color: rgba(12, 12, 12, 0.96);
+    border-top: 1px solid #282828;
+    z-index: 20;
   }
 
-  .work--lockup .slider--item-center {
-    left: 50%;
+  .l-side-nav::before,
+  .side-nav > li::before {
+    display: none;
   }
 
-  .work--lockup .slider--item-center .slider--item-image {
-    width: min(55vw, 220px);
-    height: min(55vw, 220px);
-  }
-
-  .work--lockup .slider--next,
-  .work--lockup .slider--prev {
-    top: min(28vw, 110px);
-    width: 44px;
-    height: 44px;
-  }
-
-  .contact {
-    position: relative;
-    min-height: 0;
-  }
-
-  .contact--lockup {
-    padding: 0;
-  }
-
-  .contact--lockup .modal {
+  .side-nav {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
     width: 100%;
-    padding: 28px 20px;
+    height: 100%;
+    max-height: none;
+    padding: 0 4px;
   }
 
-  .header--cta {
-    position: static;
-    transform: none;
-    margin-left: auto;
+  .side-nav > li {
+    top: 0;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    color: #aaa;
+    font-size: 0;
+  }
+
+  .side-nav > li span {
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: inherit;
+    font-size: clamp(9px, 2.6vw, 11px);
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     opacity: 1;
     visibility: visible;
   }
 
-  .header--nav-toggle,
-  .l-side-nav {
-    display: none;
-  }
-}
-
-@media (max-width: 420px) {
-  .l-wrapper {
-    padding-inline: 12px;
-  }
-
-  .intro--banner h1,
-  .about--banner h2 {
-    font-size: 2.35rem;
-  }
-
-  .work--lockup .slider--next,
-  .work--lockup .slider--prev {
-    width: 38px;
-    height: 38px;
+  .side-nav > li.is-active,
+  .side-nav > li.is-active span {
+    color: #fff;
   }
 }
