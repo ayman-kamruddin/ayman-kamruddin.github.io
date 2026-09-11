@@ -147,6 +147,37 @@ button:focus-visible {
     max-width: 320px !important;
   }
 
+  .intro {
+    position: relative;
+  }
+
+  .intro--options {
+    position: absolute;
+    right: 0;
+    bottom: 74px;
+    left: 0;
+    display: flex !important;
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  .intro--options > a {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    color: #fff;
+  }
+
+  .intro--options h3 {
+    margin: 0;
+    font-size: clamp(11px, 3.2vw, 14px);
+    line-height: 1.1;
+  }
+
+  .intro--options p {
+    display: none;
+  }
+
   .outer-nav {
     left: 50%;
     width: calc(100% - 32px);
