@@ -53,7 +53,15 @@ button:focus-visible {
   display: none;
 }
 
+.mobile-home-options {
+  display: none;
+}
+
 @media (max-width: 767px) {
+  :root {
+    --mobile-nav-bottom: max(clamp(18px, 3svh, 32px), env(safe-area-inset-bottom));
+  }
+
   body {
     font-size: 14px;
     line-height: 1.5;
@@ -151,39 +159,8 @@ button:focus-visible {
     max-width: 320px !important;
   }
 
-  .intro {
-    position: relative;
-  }
-
   .intro--options {
-    position: fixed;
-    right: 0;
-    bottom: clamp(104px, 16svh, 148px);
-    left: 0;
-    display: flex !important;
-    gap: 8px;
-    justify-content: space-between;
-    padding: 12px 16px;
-    background-color: rgba(12, 12, 12, 0.94);
-    border-top: 1px solid #282828;
-    z-index: 19;
-  }
-
-  .intro--options > a {
-    flex: 1;
-    min-width: 0;
-    margin: 0;
-    color: #fff;
-  }
-
-  .intro--options h3 {
-    margin: 0;
-    font-size: clamp(11px, 3.2vw, 14px);
-    line-height: 1.1;
-  }
-
-  .intro--options p {
-    display: none;
+    display: none !important;
   }
 
   .outer-nav {
@@ -242,7 +219,7 @@ button:focus-visible {
   .mobile-section-nav {
     position: fixed;
     right: 0;
-    bottom: max(clamp(18px, 3svh, 32px), env(safe-area-inset-bottom));
+    bottom: var(--mobile-nav-bottom);
     left: 0;
     display: flex;
     align-items: stretch;
@@ -274,5 +251,33 @@ button:focus-visible {
 
   .mobile-section-nav button.is-active {
     color: #fff;
+  }
+
+  .mobile-home-options {
+    position: fixed;
+    right: 0;
+    bottom: calc(var(--mobile-nav-bottom) + 70px);
+    left: 0;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    padding: 0 16px;
+    z-index: 99;
+  }
+
+  .mobile-home-options[hidden] {
+    display: none;
+  }
+
+  .mobile-home-options a {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 4px;
+    color: #fff;
+    font-size: clamp(11px, 3.2vw, 14px);
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+    text-decoration: none;
   }
 }

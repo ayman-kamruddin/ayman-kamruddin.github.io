@@ -338,6 +338,12 @@
   <button type="button" data-section-index="3">Contact me</button>
 </nav>
 
+<nav class="mobile-home-options" aria-label="Home page topics">
+  <a href="research_AI.html">AI &amp; ML</a>
+  <a href="research.html">Research</a>
+  <a href="physics.html">Physics</a>
+</nav>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
 <script src="assets/js/functions-min.js"></script>
@@ -412,7 +418,13 @@
 <script>
   (function() {
     var mobileNav = document.querySelector('.mobile-section-nav');
-    if (!mobileNav) return;
+    var mobileHomeOptions = document.querySelector('.mobile-home-options');
+    var mainContent = document.querySelector('.main-content');
+    if (!mobileNav || !mobileHomeOptions || !mainContent) return;
+
+    function syncMobileHomeOptions() {
+      mobileHomeOptions.hidden = !document.querySelector('#home').classList.contains('section--is-active');
+    }
 
     mobileNav.addEventListener('click', function(event) {
       var button = event.target.closest('button[data-section-index]');
@@ -426,7 +438,15 @@
       mobileNav.querySelectorAll('button').forEach(function(item) {
         item.classList.toggle('is-active', item === button);
       });
+      syncMobileHomeOptions();
     });
+
+    new MutationObserver(syncMobileHomeOptions).observe(mainContent, {
+      attributes: true,
+      subtree: true,
+      attributeFilter: ['class']
+    });
+    syncMobileHomeOptions();
   })();
 </script>
 
