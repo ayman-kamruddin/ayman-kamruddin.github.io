@@ -57,6 +57,12 @@ button:focus-visible {
   display: none;
 }
 
+/* Remove the decorative divider from the Home hero only. */
+#home .intro--banner::before,
+#home .intro--banner::after {
+  display: none;
+}
+
 @media (max-width: 767px) {
   :root {
     --mobile-nav-bottom: max(clamp(18px, 3svh, 32px), env(safe-area-inset-bottom));
