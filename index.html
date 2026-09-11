@@ -422,8 +422,16 @@
     var mainContent = document.querySelector('.main-content');
     if (!mobileNav || !mobileHomeOptions || !mainContent) return;
 
-    function syncMobileHomeOptions() {
-      mobileHomeOptions.hidden = !document.querySelector('#home').classList.contains('section--is-active');
+    function syncMobileNavigation() {
+      var sections = Array.from(mainContent.children);
+      var activeIndex = sections.findIndex(function(section) {
+        return section.classList.contains('section--is-active');
+      });
+
+      mobileHomeOptions.hidden = activeIndex !== 0;
+      mobileNav.querySelectorAll('button').forEach(function(button, index) {
+        button.classList.toggle('is-active', index === activeIndex);
+      });
     }
 
     mobileNav.addEventListener('click', function(event) {
@@ -435,18 +443,15 @@
       if (!sideNavItem) return;
 
       sideNavItem.click();
-      mobileNav.querySelectorAll('button').forEach(function(item) {
-        item.classList.toggle('is-active', item === button);
-      });
-      syncMobileHomeOptions();
+      syncMobileNavigation();
     });
 
-    new MutationObserver(syncMobileHomeOptions).observe(mainContent, {
+    new MutationObserver(syncMobileNavigation).observe(mainContent, {
       attributes: true,
       subtree: true,
       attributeFilter: ['class']
     });
-    syncMobileHomeOptions();
+    syncMobileNavigation();
   })();
 </script>
 

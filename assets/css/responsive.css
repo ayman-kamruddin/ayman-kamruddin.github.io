@@ -249,7 +249,7 @@ button:focus-visible {
     background: transparent;
     color: #aaa;
     font-size: clamp(9px, 2.6vw, 11px);
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.1;
     text-align: center;
     text-overflow: ellipsis;
@@ -258,6 +258,7 @@ button:focus-visible {
 
   .mobile-section-nav button.is-active {
     color: #fff;
+    font-weight: 700;
   }
 
   .mobile-home-options {
